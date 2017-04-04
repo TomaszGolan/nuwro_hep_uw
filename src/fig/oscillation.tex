@@ -1,0 +1,25 @@
+% neutrino oscillation
+\begin{pspicture}
+  
+  \cnodeput[linestyle = none, fillstyle = solid, fillcolor = pdcolor1](0.5,0.57){nu1}{\Large\color{pdcolor2} $\nu_\alpha$}
+    
+  \psline[linewidth = 0.03, linecolor = pdcolor1](1.2, 0.57)(3.25, 0.57)
+    
+  \pscircle[linewidth = 0.03, linecolor = pdcolor1, linestyle = dotted](5, 0.57){1.75}
+  \cnodeput[linestyle = none, fillstyle = solid, fillcolor = pdcolor7](5,1.7){nue}{\Large\color{pdcolor2} $\nu_e$}
+  \cnodeput[linestyle = none, fillstyle = solid, fillcolor = pdcolor4](4,0){num}{\Large\color{pdcolor2} $\nu_\mu$}
+  \cnodeput[linestyle = none, fillstyle = solid, fillcolor = pdcolor6](6,0){nut}{\Large\color{pdcolor2} $\nu_\tau$}
+
+  \psline[linewidth = 0.03, linecolor = pdcolor1]{->}(6.75, 0.57)(8.8, 0.57)
+
+  \cnodeput[linestyle = none, fillstyle = solid, fillcolor = pdcolor1](9.5,0.57){nu1}{\Large\color{pdcolor2} $\nu_\beta$}
+
+  \psset{nodesep = 3pt}
+  \ncarc[linecolor = pdcolor4]{->}{nue}{num}
+  \ncarc[linecolor = pdcolor7]{->}{num}{nue}
+  \ncarc[linecolor = pdcolor6]{->}{num}{nut}
+  \ncarc[linecolor = pdcolor4]{->}{nut}{num}
+  \ncarc[linecolor = pdcolor7]{->}{nut}{nue}
+  \ncarc[linecolor = pdcolor6]{->}{nue}{nut}
+
+\end{pspicture}

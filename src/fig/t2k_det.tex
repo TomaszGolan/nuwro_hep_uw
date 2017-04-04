@@ -1,0 +1,26 @@
+% T2K detector
+\begin{pspicture}
+
+  \psline[linewidth = 0.05, linecolor = pdcolor1](1.025,0)(1.025,2)
+  \psline[linewidth = 0.05, linecolor = pdcolor1](2.975,0)(2.975,2)
+  \psellipse[linewidth = 0.05, linecolor = pdcolor1](2,2)(1,0.2)
+  \psellipse[linewidth = 0.05, linecolor = pdcolor1](2,0)(1,0.2)
+
+  \psline[linewidth = 0.01, linecolor = pdcolor1]{|<->|}(1, -0.4)(3, -0.4)
+  \rput[c](2,-0.6){\color{pdcolor1}\footnotesize $39.3$~m}
+  \psline[linewidth = 0.01, linecolor = pdcolor1]{|<->|}(3.2,0)(3.2,2)
+  \rput[l](3.4,1){\color{pdcolor1}\footnotesize $41.4$~m}
+
+  \psline[linewidth = 0.03, linecolor = pdcolor4]{->}(0,1)(1.75,1)
+  \rput[c](0.5,1.2){\color{pdcolor4}\footnotesize $\nu_\alpha$}
+
+  \psline[linewidth = 0.03, linecolor = pdcolor4, linestyle = dotted]{-}(-3,1)(0,1)
+  \rput[c](-1.5,1.2){\color{pdcolor4}\footnotesize 295 km}
+
+  \psline[linewidth = 0.03, linecolor = pdcolor5]{->}(1.75,1)(2.5, 1.5)
+  \rput[c]{45}(2,1.35){\color{pdcolor5}\footnotesize $\alpha$}
+  \psline[linewidth = 0.03, linecolor = pdcolor3]{->}(1.75,1)(2.5, 0.75)
+  \psline[linewidth = 0.03, linecolor = pdcolor3]{->}(1.75,1)(2.5, 0.5)
+  \psline[linewidth = 0.03, linecolor = pdcolor3]{->}(1.75,1)(2.5, 0.25)
+
+\end{pspicture}

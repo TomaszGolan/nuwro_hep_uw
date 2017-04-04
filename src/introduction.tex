@@ -1,0 +1,282 @@
+\section{Introduction}
+
+%%%%% NEUTRINO PROPERTIES %%%%%
+
+\begin{slide}[toc=Neutrino properties]{Basic properties of neutrinos}
+  
+  % elementary particles table
+  \rput(0.8\slidewidth,0.0\slideheight){\scalebox{0.75}{\input{src/fig/particles_table}}}
+  
+  % neutrino oscillation
+  \rput(0.15\slidewidth,-0.4\slideheight){\scalebox{0.5}{\input{src/fig/oscillation}}}
+  
+  \vspace{-20pt}  
+  \begin{itemize}
+
+    \item $\frac{1}{2}$-spin, no electric charge, small mass \\ (extremely hard to detect)
+    
+    \item Interactions with elementary particles \\ $\rightarrow$ electroweak theory (Standard Model)
+    
+    \item Interactions with nucleons \\ $\rightarrow$ form factors \\ $\rightarrow$ parton distribution functions
+    
+    \item Interactions with nuclei $\rightarrow$ nuclear effects
+        
+    \item The neutrino flavor state is a superposition of the mass states: \\ \vspace{10pt}
+    \hspace{160pt}$\left|\nu_\alpha\right> = \sum_i U_{\alpha i} \left|\nu_i\right>$
+    \vspace{10pt}
+    
+    \hspace{125pt}The neutrino produced in $\alpha$ state \\ \hspace{125pt}can be measured in $\beta$ state.\\ \hspace{125pt}The phenomenon is called \\ \hspace{125pt}neutrino oscillation.
+    
+  \end{itemize}
+    
+\end{slide}
+
+%%%%% PMNS MATRIX %%%%%
+
+\begin{wideslide}[toc=PMNS matrix]{Pontecorvo-Maki-Nakagawa-Sakata matrix}
+  
+  The PMNS matrix defines the mass mixing in the lepton sector:
+  
+  $$U =    
+    \left[\begin{array}{ccc}
+      1 & 0 & 0 \\ 
+      0 & \grey{c_{23}} & \grey{s_{23}} \\ 
+      0 & -\grey{s_{23}} & \grey{c_{23}}
+    \end{array}\right]
+    \left[\begin{array}{ccc}
+      \grey{c_{13}} & 0 & \grey{s_{13}}\red{e^{-i\delta}} \\
+      0 & 1 & 0 \\
+      -\grey{s_{13}}\red{e^{i\delta}} & 0 & \grey{c_{13}}
+    \end{array}\right]  
+    \left[\begin{array}{ccc}
+      \grey{c_{12}} & \grey{s_{12}} & 0 \\
+      -\grey{s_{12}} & \grey{c_{12}} & 0 \\
+      0 & 0 & 1
+    \end{array}\right]
+  $$
+  
+  \mbox{}\vspace{5pt}
+  
+  \makebox[\textwidth]{\grey{$c_{ij} = \cos\theta_{ij}$ \hspace{10pt} $s_{ij} = \sin\theta_{ij}$ \hspace{10pt} $\theta_{ij}$ - mixing angels} \hspace{10pt} \red{$\delta$ - CP phase factor}}
+
+  \psline[linewidth = 0.01, linecolor = pdcolor1](-5,0.225)(15,0.225)
+  \psline[linewidth = 0.01, linecolor = pdcolor1](-5,0.825)(15,0.825)
+ 
+  \begin{center}
+    Measurements:
+  \end{center}
+ 
+  \mbox{}%\vspace{10pt}
+   
+  \begin{minipage}{0.5\columnwidth}
+    \begin{itemize}
+      \item Solar, reactor and accelerator:
+      \item Atmospheric:
+      \item Reactor:
+    \end{itemize}
+  \end{minipage}
+  \begin{minipage}{0.4\columnwidth}
+    \begin{itemize}
+      \item[] $\grey{\sin^2(2\theta_{12}) = 0.846 \pm 0.021}$
+      \item[] $\grey{\sin^2(2\theta_{23}) > 0.92}$
+      \item[] $\grey{\sin^2(2\theta_{13}) = 0.093 \pm 0.008}$
+    \end{itemize} 
+  \end{minipage}
+  \mbox{}\vspace{15pt}
+  \makebox[\textwidth]{$\red{\delta}$ can be measured if and only if all mixing angles are nonzero. If $\red{\delta \neq 0}$ CP is violated.}
+  
+  \psline[linewidth = 0.01, linecolor = pdcolor1](-5,0.25)(15,0.25)
+  \psline[linewidth = 0.01, linecolor = pdcolor1](-5,0.85)(15,0.85)
+  
+\end{wideslide}
+
+%%%%% PROBABILITY OF OSCILLATION %%%%%
+
+\begin{slide}{Probability of oscillation}
+    
+  \begin{eqnarray*}
+    P(\nu_\alpha \rightarrow \nu_\beta)
+      & = & \left|\left<\nu_\beta(x)|\nu_\alpha(y)\right>\right|^2 = \delta_{\alpha\beta} \\
+      & - & 4 \sum_{i>j}\Re\left[U^*_{\alpha i}U_{i\beta}U_{\alpha_j}U^*_{j\beta}\right]\sin^2\left(\frac{{\blue{\Delta m_{ij}}^2} \grey{L}}{4\red{E}}\right) \\ 
+      & + & 2\sum_{i>j}\Im\left[U^*_{\alpha i}U_{i\beta}U_{\alpha_j}U^*_{j\beta}\right]\sin^2\left(\frac{{\blue{\Delta m_{ij}}^2} \grey{L}}{2\red{E}}\right)
+  \end{eqnarray*}
+  
+  \psframe[linewidth = 0.01, linecolor = pdcolor1](-0.7,1.8)(2.7,1.2)
+  \rput[c](1,1.5){\blue{$\Delta m_{ij}^2 \equiv m_i^2 - m_j^2$}}
+
+  \mbox{} \vspace{5pt}
+  
+  \grey{$L$} - traveled distance (fixed), \red{$E$} - neutrino energy (will be discussed)
+  
+  \psline[linewidth = 0.01, linecolor = pdcolor1](-0.8,0)(10.7,0)
+  \psline[linewidth = 0.01, linecolor = pdcolor1](-0.8,1)(10.7,1)
+      
+  \begin{center}
+    Measurements:
+  \end{center}
+ 
+  \mbox{}%\vspace{10pt}
+   
+  \begin{minipage}{0.4\columnwidth}
+    \begin{itemize}
+      \item Solar neutrinos:
+      \item Atmospheric neutrinos:
+    \end{itemize}
+  \end{minipage}
+  \begin{minipage}{0.575\columnwidth}
+    \begin{itemize}
+      \item[] \blue{$\Delta m^2_{21} = (7.53 \pm 0.18) \cdot 10^{-5} eV^2$}
+      \item[] \blue{$|\Delta m^2_{32}| = (2.44 \pm 0.06) \cdot 10^{-3} eV^2$}
+    \end{itemize} 
+  \end{minipage}
+
+  
+\end{slide}
+
+%%%%% MASS HIERARCHY AND CPT %%%%%
+
+\begin{wideslide}{Neutrino oscillation}
+   
+  % mass hierarchy 
+  \rput(0.95\slidewidth, 0.05\slideheight){\scalebox{0.75}{\input{src/fig/mass_hierarchy}}}
+  
+  % CPT
+  \rput(0.35\slidewidth, -0.4\slideheight){\scalebox{0.75}{\input{src/fig/cpt}}}
+
+  \vspace{-15pt}
+  \underline{The probability of neutrino oscillation depends on:}\\ \vspace{5pt}
+
+  \begin{itemize}    
+    \item What we want to measure:
+    \begin{itemize}
+      \item three mixing angles - already measured
+      \item the difference between squared mass of the mass \\ states - the sign of $\Delta m_{32}^2$ is still unknown, \\what is the mass hierarchy?
+      \item the CP phase factor - is the CP symmetry broken? \\ \vspace{5pt}\hspace{15pt}
+      {\small$P(\bar\nu_\alpha \rightarrow \bar\nu_\beta) = P(\nu_\beta \rightarrow \nu_\alpha) \stackrel{?}{=} P(\nu_\alpha \rightarrow \nu_\beta)$}
+    \end{itemize}
+
+    \addtolength{\itemindent}{120pt}
+    \vspace{10pt}
+
+    \item What we need to know:
+    
+    \begin{itemize}
+      \addtolength{\itemindent}{120pt}
+      \item the distance traveled by a neutrino
+      \item {\bf neutrino energy} - this is a problem      
+    \end{itemize}
+  
+  \end{itemize}
+
+\end{wideslide}
+
+%%%%% MEASUREMENT IDEA %%%%%
+
+\begin{slide}[toc=Measurement idea]{How to measure neutrino oscillation?}
+ 
+ \rput(0.43\slidewidth, 0.33\slideheight){\input{src/fig/om_idea}}
+ 
+\end{slide}
+
+%%%%% T2K %%%%%%
+
+\begin{wideslide}{Example: T2K}
+  
+  \twocolumn
+  {
+    % T2K beam
+    \rput{-12.8}(0.35\slidewidth, 0.15\slideheight){\scalebox{0.65}{\input{src/fig/t2k_beam}}}
+
+    % T2K flux
+    \rput[c](3,-5.0){\includegraphics[width=0.8\columnwidth]{img/oaeffect_flux.eps}}
+  }
+  {
+    % T2K detector
+    \rput(0.425\slidewidth, 0.155\slideheight){\scalebox{0.75}{\input{src/fig/t2k_det}}}
+
+    \mbox{}\vspace{0.225\slideheight}  
+  
+    \begin{itemize}
+
+      \item Off-axis beam
+      \item Cherenkov detector (Super-Kamiokande)
+      \item 50 000 tons of ultra-pure water
+      \item Only charged leptons and final state charged hadrons are visible
+      \item The neutrino energy is unknown
+      
+    \end{itemize}
+  }
+  
+\end{wideslide}
+
+%%%%% ENERGY RECONSTRUCTION %%%%%
+
+\begin{slide}[toc=Energy reconstruction]{The problem with neutrino energy reconstruction}
+ 
+  % SLIDE 1
+  \onslide*{1}
+  {
+    \rput[c](13,3.5){\input{src/fig/qel_vertex}}
+    
+    \mbox{} \\ \mbox{} \\
+    
+    In the case of neutrino scattering off \\ nucleon at rest neutrino energy can be \\ calculated from lepton kinematics:
+    
+    \mbox{} \\
+    
+    \twocolumn
+    {
+      \begin{eqnarray*}
+	M_p^2 & = & p'^2 = (p + k - k')^2 \\ & & \\
+	M_p^2 & = & m_l^2 + M_n^2 - 2M_nE_l \\
+	& + & 2E_\nu(M_n - E_l + |\vec p_l|\cos\theta_l) \\ & & \\
+	E_\nu & = & \frac{M_p^2 - M_n^2 - m_l^2 + 2M_nE_l}{2(M_n - E_l + |\vec p_l|\cos\theta_l)}
+      \end{eqnarray*}
+    }
+    {
+      \mbox{} \\ \mbox{} \\ \mbox{} \\
+      \begin{eqnarray*}
+	\hspace{20pt} k & = & (E_\nu, 0, 0, E_\nu) \\
+	  k' & = & (E_l, \vec p_l) \\
+	  p & = & (M_p, 0, 0, 0) \\
+	  p' & = & p + q \\
+	  q & = & k - k'       
+      \end{eqnarray*}    
+    }
+  }
+  % SLIDE 2-3 TOP
+  \onslide*{2-3}
+  {
+    \rput(0.83\slidewidth, -0.075\slideheight){\input{src/fig/nu-N}}
+  
+    \begin{itemize}
+    
+      \item Usually, the energy reconstruction procedure is based on quasi-elastic neutrino-nucleon scattering:
+    
+      $$E_\nu^{REC} = \frac{M_p^2 - (M_n - E_B)^2 - m_l^2 + 2(M_n - E_B)E_l}{2(M_n - E_B - E_l + |\vec p_l|\cos\theta_l)}$$
+
+    \end{itemize}
+  }
+  % SLIDE 2
+  \onslide*{2}
+  {
+    % COVER NUCLEUS
+    \psframe[linewidth = 0.01, linecolor = pdcolor1](0,-2)(4,-1)
+    \psframe[linewidth = 0.01, linecolor = pdcolor1](0,-3.1)(4,-2.1)
+    \psframe[linewidth = 0.01, linecolor = pdcolor1](0,-3.2)(4,-4.2)
+    % LABEL
+    \rput[c](2,-1.5){\color{pdcolor1} Impulse Approximation}
+    \rput[c](2,-2.6){\color{pdcolor1} No Fermi motion}
+    \rput[c](2,-3.7){\color{pdcolor1} Binding Potential}
+  }	
+  
+  \onslide*{3}
+  {
+    % LABEL
+    \vspace{15pt}
+    \psframe[linewidth = 0.01, linecolor = pdcolor1](-0.2,-2.8)(4.2,-1.2)
+    \rput[c](2,-1.7){\color{pdcolor1} Never judge an event}
+    \rput[c](2,-2.3){\color{pdcolor1} by its final state particles!}
+  }
+ 
+\end{slide}

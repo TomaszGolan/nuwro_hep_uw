@@ -1,0 +1,27 @@
+% T2K beam
+\begin{pspicture}
+  
+  \pscircle[linewidth = 0.05, linecolor = pdcolor1](0,0){0.5}
+  \psline[linewidth = 0.05, linecolor = pdcolor1]{->}(0,0.475)(1.75,0.475)
+  \rput[c](0.8,0.7){\color{pdcolor1}\small Proton beam}
+  
+  \psframe[linewidth = 0.05, linecolor = pdcolor1, fillstyle = solid, fillcolor = pdcolor1](2.5,-0.5)(3,1.5)
+  \rput[c](2.75,1.7){\color{pdcolor1}\small Target}
+      
+  \psline[linewidth = 0.03, linecolor = pdcolor1]{->}(4.25, 0.45)(5.5,0.45)
+  \rput[c](4.85,0.65){\color{pdcolor1}\small $\pi^+$}
+  \psline[linewidth = 0.03, linecolor = pdcolor1, linestyle = dotted](5.5,0.45)(9,0.45)
+
+  \psline[linewidth = 0.03, linecolor = pdcolor3]{->}(5.5, 0.45)(6.5,0.3)
+  \rput[c]{-10}(6,0.175){\color{pdcolor3}\small $\mu^+$}
+  
+  \psline[linewidth = 0.03, linecolor = pdcolor4]{->}(5.5, 0.45)(9,1.25)
+  \rput[c]{10}(7.75,1.15){\color{pdcolor4}\small $\nu_\mu$ beam}
+
+  \psframe[linewidth = 0.05, linecolor = pdcolor1, framearc = 0.3](4,-0.5)(7,1.5)
+  \rput[c](5.5,1.7){\color{pdcolor1}\small Decay volume}
+  
+  \psarc[linewidth = 0.025, linecolor = pdcolor1, arrowscale = 0.75]{->}(5.5,0.45){2.5}{0}{13}
+  \rput[l](8.1,0.75){\color{pdcolor1}\tiny $2.5^o$}
+
+\end{pspicture}

@@ -1,0 +1,25 @@
+% nu-N scattering
+\begin{pspicture}
+      
+  \rput[c](-1.5,0.3){\color{pdcolor4} $\nu$}
+  \psline[linewidth = 0.03, linecolor = pdcolor4]{->}(-2,0)(0,0)
+  
+  \psline[linewidth = 0.03, linecolor = pdcolor1, linestyle = dotted](0,0)(3,0)
+  \psarc[linewidth = 0.02, linecolor = pdcolor1, arrowscale = 0.75]{->}(0,0){2}{0}{18}
+  \rput[l](2.2,0.35){\color{pdcolor1} $\theta_l$}
+
+  
+  \rput[c]{20}(1.7,0.85){\color{pdcolor5} $l$}
+  \psline[linewidth = 0.03, linecolor = pdcolor5]{->}(0,0)(3,1)
+  
+  \rput[c]{-20}(1.8,-0.9){\color{pdcolor3} nucleon(s)}
+  \psline[linewidth = 0.03, linecolor = pdcolor3]{->}(0,0)(3,-1)
+  
+  \rput[c]{-45}(0.13,-0.32){\color{pdcolor6} $\pi$}
+  \psline[linewidth = 0.03, linecolor = pdcolor6]{->}(0,0)(0.5,-0.5)
+  
+  \rput[c](0,1.3){\color{pdcolor1} Nucleus}
+  \onslide{2}{\pscircle[linewidth = 0.05, linecolor = pdcolor1, fillstyle = solid, fillcolor = pdcolor1](0,0){1}}
+  \onslide{3}{\pscircle[linewidth = 0.05, linecolor = pdcolor1](0,0){1}}
+
+\end{pspicture}

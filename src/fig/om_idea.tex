@@ -1,0 +1,63 @@
+% oscillation measurement idea
+\begin{pspicture}
+  
+  \rput[c](0,1.2){\color{pdcolor1} Neutrino source}
+  \pscircle[linewidth = 0.05, linecolor = pdcolor1](0,0){0.9}
+  \pscircle[linewidth = 0.05, linecolor = pdcolor1](0,0){0.65}
+  {
+  \psset{arrows = ->, arrowinset = 0}
+  \psarc[linewidth = 0.03, linecolor = pdcolor1](0,0){0.75}{0}{60}
+  \psarc[linewidth = 0.03, linecolor = pdcolor1](0,0){0.75}{60}{120}
+  \psarc[linewidth = 0.03, linecolor = pdcolor1](0,0){0.75}{120}{180}
+  \psarc[linewidth = 0.03, linecolor = pdcolor1](0,0){0.75}{180}{240}
+  \psarc[linewidth = 0.03, linecolor = pdcolor1](0,0){0.75}{240}{300}
+  \psarc[linewidth = 0.03, linecolor = pdcolor1](0,0){0.75}{300}{360}
+  }
+  \rput[c](0,0){\Large\color{pdcolor1} $\nu_\alpha$}
+	
+  \psline[linewidth = 0.03, linecolor = pdcolor1](1.2, 0)(2.25, 0)
+    
+  \pscircle[linewidth = 0.03, linecolor = pdcolor1, linestyle = dotted](4, 0){1.75}
+  \cnodeput[linestyle = none, fillstyle = solid, fillcolor = pdcolor7](4,1.13){nue}{\Large\color{pdcolor2} $\nu_e$}
+  \cnodeput[linestyle = none, fillstyle = solid, fillcolor = pdcolor4](3,-0.57){num}{\Large\color{pdcolor2} $\nu_\mu$}
+  \cnodeput[linestyle = none, fillstyle = solid, fillcolor = pdcolor6](5,-0.57){nut}{\Large\color{pdcolor2} $\nu_\tau$}
+
+  \psline[linewidth = 0.03, linecolor = pdcolor1]{->}(5.75, 0)(6.8, 0)
+  
+  \rput[c](7.9,1.2){\color{pdcolor1} Detector}
+  \psframe[linewidth = 0.05, linecolor = pdcolor1](7,-0.9)(8.8,0.9)
+
+  \psset{arrows = ->, arrowinset = 0.2}
+  \psline[linewidth = 0.03, linecolor = pdcolor5]{->}(7.5, 0)(8.3, 0.5)
+  \rput[c]{45}(7.75,0.45){\color{pdcolor5}$\alpha / \alpha'$}
+  \psline[linewidth = 0.03, linecolor = pdcolor3]{->}(7.5, 0)(8.3, -0.1)
+  \psline[linewidth = 0.03, linecolor = pdcolor3]{->}(7.5, 0)(8.3, -0.4)
+  \psline[linewidth = 0.03, linecolor = pdcolor3]{->}(7.5, 0)(8.3, -0.7)
+
+  \psset{nodesep = 3pt}
+  \ncarc[linecolor = pdcolor4]{->}{nue}{num}
+  \ncarc[linecolor = pdcolor7]{->}{num}{nue}
+  \ncarc[linecolor = pdcolor6]{->}{num}{nut}
+  \ncarc[linecolor = pdcolor4]{->}{nut}{num}
+  \ncarc[linecolor = pdcolor7]{->}{nut}{nue}
+  \ncarc[linecolor = pdcolor6]{->}{nue}{nut}
+  
+  \psframe[linewidth = 0.03, linecolor = pdcolor1, fillstyle = solid, fillcolor = pdcolor1](-1,-2)(9,-2.6)
+  \rput[c](4,-2.3){\color{pdcolor2} Disappearance method}
+  \psframe[linewidth = 0.03, linecolor = pdcolor1](-1,-2.6)(9,-4)
+  \rput[c](1,-3.1){\color{pdcolor1} Number of $\alpha$-flavor}
+  \rput[c](1,-3.5){\color{pdcolor1} neutrinos}
+  \psline[linewidth = 0.02, linecolor = pdcolor1]{<->}(3, -3.3)(5, -3.3)
+  \rput[c](7,-3.1){\color{pdcolor1} Number of $\alpha$-flavor}
+  \rput[c](7,-3.5){\color{pdcolor1} charged leptons}
+
+  \psframe[linewidth = 0.03, linecolor = pdcolor1, fillstyle = solid, fillcolor = pdcolor1](-1,-4.3)(9,-4.9)
+  \rput[c](4,-4.6){\color{pdcolor2} Appearance method}
+  \psframe[linewidth = 0.03, linecolor = pdcolor1](-1,-4.9)(9,-6.3)
+  \rput[c](1,-5.4){\color{pdcolor1} Number of $\alpha$-flavor}
+  \rput[c](1,-5.8){\color{pdcolor1} neutrinos}
+  \psline[linewidth = 0.02, linecolor = pdcolor1]{<->}(3, -5.6)(5, -5.6)
+  \rput[c](7,-5.4){\color{pdcolor1} Number of $\alpha'$-flavor}
+  \rput[c](7,-5.8){\color{pdcolor1} charged leptons}
+
+\end{pspicture}

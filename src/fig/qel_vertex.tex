@@ -1,0 +1,20 @@
+% QEL vertex
+\begin{pspicture}
+  \rput[c](0,-1.75){Quasi-elastic scattering}
+  \pscoil[coilarm = 0, linewidth = 0.025, linecolor = pdcolor1, coilwidth = 0.25, coilaspect = 0]{c-c}(-1,0)(1,0)
+  \rput[c](0,-0.4){\color{pdcolor1}\small $W$}
+  \psframe[linestyle = none, fillstyle = solid, fillcolor = pdcolor2](-1.1,-0.03)(-0.9,0.2)
+  \psframe[linestyle = none, fillstyle = solid, fillcolor = pdcolor2](0.9,-0.03)(1.1,0.2)
+  \pscircle[linestyle = none, fillstyle = solid, fillcolor = pdcolor1](-0.95,0){0.05}
+  \pscircle[linestyle = none, fillstyle = solid, fillcolor = pdcolor1](0.95,0){0.05}
+  \psline[linewidth = 0.025, linecolor = pdcolor1]{c-}(-0.95,0)(-2,1)
+  \psline[linewidth = 0.025, linecolor = pdcolor1]{c-}(-0.95,0)(-2,-1)
+  \psline[linewidth = 0.05, linecolor = pdcolor1]{c-}(0.95,0)(2,1)
+  \psline[linewidth = 0.05, linecolor = pdcolor1]{c-}(0.95,0)(2,-1)
+  
+  \rput[l](-1.75,1){\color{pdcolor1} $l (k')$}
+  \rput[l](-1.75,-1){\color{pdcolor1} $\nu (k)$}
+  \rput[r](1.75,1){\color{pdcolor1} $p (p')$}
+  \rput[r](1.75,-1){\color{pdcolor1} $n (p)$}
+
+\end{pspicture}

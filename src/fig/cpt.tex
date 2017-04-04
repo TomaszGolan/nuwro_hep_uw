@@ -1,0 +1,51 @@
+% CPT figure
+\begin{pspicture}
+
+  \psset{nodesep = 3pt}
+
+  \cnode[linestyle = none, fillstyle = solid, fillcolor = pdcolor1](0,3.5){0.35}{c1}
+  \rput[c](0,3.5){\color{pdcolor2} $+$}
+  \psarc[linecolor = pdcolor2, fillstyle = none, arrowinset = 0]{->}(0,3.5){.25}{135}{405}
+  \psline[linecolor = pdcolor1, linewidth = 0.05, arrowinset = 0.1]{->}(0,3.85)(0, 4.2)
+
+  \cnode[linestyle = none, fillstyle = solid, fillcolor = pdcolor1](2,3.5){0.35}{c2}
+  \rput[c](2,3.5){\color{pdcolor2} $-$}
+  \psarc[linecolor = pdcolor2, fillstyle = none, arrowinset = 0]{->}(2,3.5){.25}{135}{405}
+  \psline[linecolor = pdcolor1, linewidth = 0.05, arrowinset = 0.1]{->}(2,3.85)(2, 4.2)
+
+  \ncarc[linecolor = pdcolor1]{<->}{c1}{c2}
+  \naput{C}
+  
+  \rput[c](1, 2.9){\color{pdcolor1}\small charge conjugation}
+
+  \cnode[linestyle = none, fillstyle = solid, fillcolor = pdcolor1](0,2){0.35}{p1}
+  \rput[c](0,2){\color{pdcolor2} $+$}
+  \psarc[linecolor = pdcolor2, fillstyle = none, arrowinset = 0]{->}(0,2){.25}{135}{405}
+  \psline[linecolor = pdcolor1, linewidth = 0.05, arrowinset = 0.1]{->}(0,2.35)(0, 2.7)
+
+  \cnode[linestyle = none, fillstyle = solid, fillcolor = pdcolor1](2,2){0.35}{p2}
+  \rput[c](2,2){\color{pdcolor2} $+$}
+  \psarc[linecolor = pdcolor2, fillstyle = none, arrowinset = 0]{<-}(2,2){.25}{135}{405}
+  \psline[linecolor = pdcolor1, linewidth = 0.05, arrowinset = 0.1]{->}(2,2.35)(2, 2.7)
+
+  \ncarc[linecolor = pdcolor1]{<->}{p1}{p2}
+  \naput{P}  
+
+  \rput[c](1, 1.4){\color{pdcolor1}\small parity transformation}
+  
+  \cnode[linestyle = none, fillstyle = solid, fillcolor = pdcolor1](0,0.5){0.35}{t1}
+  \rput[c](0,0.5){\color{pdcolor2} $+$}
+  \psarc[linecolor = pdcolor2, fillstyle = none, arrowinset = 0]{->}(0,0.5){.25}{135}{405}
+  \psline[linecolor = pdcolor1, linewidth = 0.05, arrowinset = 0.1]{->}(0,0.85)(0, 1.2)
+
+  \cnode[linestyle = none, fillstyle = solid, fillcolor = pdcolor1](2,0.5){0.35}{t2}
+  \rput[c](2,0.5){\color{pdcolor2} $+$}
+  \psarc[linecolor = pdcolor2, fillstyle = none, arrowinset = 0]{<-}(2,0.5){.25}{135}{405}
+  \psline[linecolor = pdcolor1, linewidth = 0.05, arrowinset = 0.1]{->}(2,0.15)(2, -0.2)
+
+  \ncarc[linecolor = pdcolor1]{<->}{t1}{t2}
+  \naput{T}  
+  
+  \rput[c](1, -0.1){\color{pdcolor1}\small time reversal}
+
+\end{pspicture}
