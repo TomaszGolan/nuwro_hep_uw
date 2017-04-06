@@ -1,0 +1,20 @@
+\begin{tikzpicture}[node distance = 1cm and 1.5cm]
+  
+ \node(left) [] {};
+ \node(leftEmpty) [left=of left] {};
+ \node(leftUp) [above=of leftEmpty] {$\nu / l$};
+ \node(leftDown) [below=of leftEmpty] {$\nu$};
+ 
+ \node(right) [right=of left] {};
+ \node(rightEmpty) [right=of right] {};
+ \node(rightUp) [above=of rightEmpty] {N'};
+ \node(rightDown) [below=of rightEmpty] {N};
+ 
+ \draw[curl, thick] (left.center) -- node[above] {$Z^0 / W^\pm$} ++ (right.center);
+ 
+ \draw[color = pdcolor1, thick] (left.center) -- (leftUp);
+ \draw[color = pdcolor1, thick] (left.center) -- (leftDown); 
+ \draw[color = pdcolor1, thick] (right.center) -- (rightUp);
+ \draw[color = pdcolor1, thick] (right.center) -- (rightDown);
+ 
+\end{tikzpicture}

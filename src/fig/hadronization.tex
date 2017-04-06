@@ -1,0 +1,8 @@
+\begin{tikzpicture}[node distance = 2cm]
+  
+  \node (quarks) {\scalebox{0.2}{\input{src/fig/quarks}}};
+  \node (hadrons) [ell, notFilled, right=of quarks] {Hadrons};
+  
+  \draw [line, ->] (quarks) -- (hadrons);
+ 
+\end{tikzpicture}

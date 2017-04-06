@@ -1,0 +1,25 @@
+\begin{tikzpicture}[node distance = 1cm and 1.5cm]
+  
+ \node(left) [] {};
+ \node(leftEmpty) [left=of left] {};
+ \node(leftUp) [above=of leftEmpty] {$\nu / l$};
+ \node(leftDown) [below=of leftEmpty] {$\nu$};
+ 
+ \node(right) [right=of left] {};
+ \node(rightEmpty) [right=of right] {};
+ \node(rightDown) [below=of rightEmpty] {N};
+
+ \node(delta) [above=of rightEmpty, xshift = -1.0cm, yshift = -0.5cm] {$\Delta$};
+ \node(rightUp1) [above=of delta, yshift = -0.5cm] {$\pi$};
+ \node(rightUp2) [right=of delta, xshift = -1.0cm] {N'};
+ 
+ \draw[curl, thick] (left.center) -- node[above] {$Z^0 / W^\pm$} ++ (right.center);
+ 
+ \draw[color = pdcolor1, thick] (left.center) -- (leftUp);
+ \draw[color = pdcolor1, thick] (left.center) -- (leftDown); 
+ \draw[color = pdcolor1, thick] (right.center) -- (rightDown);
+ \draw[color = pdcolor1, thick] (right.center) -- (delta);
+ \draw[color = pdcolor1, thick] (delta) -- (rightUp1);
+ \draw[color = pdcolor1, thick] (delta) -- (rightUp2);
+ 
+\end{tikzpicture}

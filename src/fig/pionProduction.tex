@@ -1,0 +1,20 @@
+\begin{tikzpicture}[node distance = 1.5cm and 1cm]
+ 
+ \node(empty) {};
+ 
+ \node(piprod) [rect, round, filled, above=of empty] {$\pi$ production};
+ \node(delta)  [rect, notFilled, left=of empty, align = center] {$\Delta$ resonance \\ {\tiny Adler-Rarita-Schwinger}};
+ \node(quark)  [rect, notFilled, right=of empty] {Quark-parton model};
+ 
+ \node(res) [ell, filled, below=of delta] {RES};
+ \node(dis) [ell, filled, below=of quark] {DIS};
+ 
+ \draw [line, thick, ->] (piprod) -- (delta);
+ \draw [line, thick, ->] (piprod) -- (quark);
+ \draw [line, thick, ->] (delta) -- (res);
+
+ \draw [line, thick, ->] (quark) -- node[above, rotate=25] {$W < 1.6$ GeV} ++ (res);
+ \draw [line, thick, ->] (quark) -- node[right] {$W > 1.6$ GeV} ++ (dis);
+
+ 
+\end{tikzpicture}

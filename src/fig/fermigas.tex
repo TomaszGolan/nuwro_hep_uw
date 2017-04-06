@@ -1,0 +1,44 @@
+\scalebox{0.4}
+{
+\begin{tikzpicture}
+     
+  \draw[ultra thick, color=pdcolor1] (0,0) -- (3,0) -- (3, -4.7) -- (8,-4.7) -- (8,0) -- (11,0);
+  \draw[ultra thick, dashed, color=pdcolor3] (0,0.1) to [out=0, in=210] (3, 1) to [out=30, in = 90](3.25, 0) -- (3.25, -3.7) -- (7.75, -3.7) -- (7.75, 0) to [out = 90, in = 150] (8,1) to [out = 330, in = 180] (11,0.1);
+      
+  \node[below, color=pdcolor1] at (4.3,0) {neutrons};
+  \node[below, color=pdcolor3] at (6.8,0) {protons};
+      
+  \node[align = center, below, color=pdcolor1] at (1.5,-1.2) {neutrons \\ potential};
+  \draw[thick,>=latex, ->, color=pdcolor1] (1.5,-1.2) -- (2,-0.1);
+      
+  \node[align = center, above, color=pdcolor3] at (9.5, 1.2) {protons \\ potential};
+  \draw[thick,>=latex, ->, color=pdcolor3] (9.5,1.2) -- (9.2, 0.45);
+      
+  \draw[fill, color=pdcolor1] (3.8, -1.2) circle [radius=0.3];
+  \draw[fill, color=pdcolor1] (4.8, -1.2) circle [radius=0.3];
+  \draw[fill, color=pdcolor3] (6.2, -1.2) circle [radius=0.3];
+  \draw[fill, color=pdcolor3] (7.2, -1.2) circle [radius=0.3];
+
+  \draw[fill, color=pdcolor1] (3.8, -2.2) circle [radius=0.3];
+  \draw[fill, color=pdcolor1] (4.8, -2.2) circle [radius=0.3];
+  \draw[fill, color=pdcolor3] (6.2, -2.2) circle [radius=0.3];
+  \draw[fill, color=pdcolor3] (7.2, -2.2) circle [radius=0.3];
+
+  \draw[fill, color=pdcolor1] (3.8, -3.2) circle [radius=0.3];
+  \draw[fill, color=pdcolor1] (4.8, -3.2) circle [radius=0.3];
+  \draw[fill, color=pdcolor3] (6.2, -3.2) circle [radius=0.3];
+  \draw[fill, color=pdcolor3] (7.2, -3.2) circle [radius=0.3];
+
+  \draw[fill, color=pdcolor1] (3.8, -4.2) circle [radius=0.3];
+  \draw[fill, color=pdcolor1] (4.8, -4.2) circle [radius=0.3];
+      
+  \draw[thick, dotted, color=pdcolor1] (8, -1.2) -- (11, -1.2);
+  \draw[thick, dotted, color=pdcolor1] (8, -3.7) -- (9, -3.7);
+  \draw[thick, dotted, color=pdcolor1] (8, -4.7) -- (11, -4.7);
+      
+  \draw[thick, >=latex, <->, color=pdcolor1] (8.5, -3.7) -- node[right]{$E_F^p$} (8.5, -1.2);
+  \draw[thick, >=latex, <->, color=pdcolor1] (9.5, -4.7) -- node[right]{$E_F^n$} (9.5, -1.2);
+  \draw[thick, >=latex, <->, color=pdcolor1] (10.5, -1.2) -- node[right]{$E_B$} (10.5, 0);
+     
+\end{tikzpicture}
+}

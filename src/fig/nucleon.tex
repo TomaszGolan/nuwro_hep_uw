@@ -1,0 +1,13 @@
+\begin{tikzpicture}
+  
+  \node (n) [circle, filled, minimum width = 4cm] {};
+
+  \node (q1) [circle, filled={pdcolor5}, minimum width = 1cm, below=of n, yshift = 4.75cm] {}; 
+  \node (q2) [circle, filled={pdcolor6}, minimum width = 1cm, below=of q1, xshift = 1cm] {}; 
+  \node (q3) [circle, filled={pdcolor7}, minimum width = 1cm, below=of q1, xshift = -1cm] {};
+ 
+  \draw [curl={pdcolor2}, very thick] (q1) -- (q2);
+  \draw [curl={pdcolor2}, very thick] (q2) -- (q3);
+  \draw [curl={pdcolor2}, very thick] (q3) -- (q1);
+
+\end{tikzpicture}

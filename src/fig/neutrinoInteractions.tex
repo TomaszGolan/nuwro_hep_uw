@@ -1,0 +1,31 @@
+\begin{tikzpicture}[node distance = 1cm and 1cm]
+ 
+ \node(nucleon) [notFilled={pdcolor1}, rect]                   {Nucleon (IA*)};
+ \node(npnh) 	[notFilled={pdcolor1}, rect, right=of nucleon] {np-nh (semi-IA)};
+ \node(nucleus) [notFilled={pdcolor1}, rect, right=of npnh]    {Nucleus};
+ 
+ \node(neutrino) [filled={pdcolor1}, rect, round, above=of npnh] {Neutrino};
+ 
+ \draw[line={pdcolor1}, ultra thick, ->] (neutrino.south west) -- (nucleon.north east);
+ \draw[line={pdcolor1}, ultra thick, ->] (neutrino.south)      -- (npnh.north);
+ \draw[line={pdcolor1}, ultra thick, ->] (neutrino.south east) -- (nucleus.north west);
+ 
+ \begin{scope}[node distance = 0.5cm]
+  \node(qel) [filled={pdcolor3}, ell, below=of nucleon] {(Q)EL};  
+  \node(res) [filled={pdcolor3}, ell, below=of qel]     {RES};  
+  \node(dis) [filled={pdcolor3}, ell, below=of res]     {DIS};
+  \node(mec) [filled={pdcolor3}, ell, below=of npnh]    {MEC (2p2h)};
+  \node(coh) [filled={pdcolor3}, ell, below=of nucleus] {Coherent $\pi$};
+ \end{scope}
+
+ \node(fsi) [filled={pdcolor4}, rect, round, minimum width = 5cm, text width = 5cm, right=of dis, xshift=0.5cm, yshift=0.75cm] {Final state interactions};
+ 
+ \draw[line={pdcolor3}, thick, ->] (qel.south east) -- (fsi.north west);
+ \draw[line={pdcolor3}, thick, ->] ([xshift=-3pt, yshift=-5pt] res.east) -- (fsi.west);
+ \draw[line={pdcolor3}, thick, ->] (dis.east)       -- (fsi.south west);
+ \draw[line={pdcolor3}, thick, ->] (mec.south)      -- ([xshift=-1.75cm]fsi.north);
+ 
+ \node [below=of fsi, xshift = 2cm] {*IA = Impulse Approximation};
+ 
+\end{tikzpicture}
+
