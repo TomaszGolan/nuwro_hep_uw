@@ -1,0 +1,20 @@
+\begin{tikzpicture}[node distance = 0cm]
+ 
+  \node (a) [rectH, filled2=pdcolor1, line width = 0] {};
+  \node (b) [rectH, notFilled=pdcolor1, line width = 0, right=of a] {};
+  \node (c) [rectH, filled2=pdcolor1, line width = 0, right=of b] {};
+  \node (d) [rectH, notFilled=pdcolor1, line width = 0, right=of c] {};
+  \node (e) [rectH, filled2=pdcolor1, line width = 0, right=of d] {};
+  \node (f) [rectH, notFilled=pdcolor1, line width = 0, right=of e] {};
+  
+  \draw[color = pdcolor7, ultra thick, xshift=0.1cm, yshift=0.0cm, rotate=45] (0,0) -- (0.4,0);
+  \draw[color = pdcolor6, ultra thick, xshift=1.4cm, yshift=-0.8cm, rotate=35] (0,0) -- (0.4,0);
+  \draw[color = pdcolor7, ultra thick, xshift=2.0cm, yshift=-0.4cm, rotate=-30] (0,0) -- (0.4,0);
+  \draw[color = pdcolor6, ultra thick, xshift=2.5cm, yshift=0.6cm, rotate=60] (0,0) -- (0.4,0);
+  \draw[color = pdcolor6, ultra thick, xshift=0.8cm, yshift=-0.5cm, rotate=-20] (0,0) -- (0.4,0);
+  \draw[color = pdcolor7, ultra thick, xshift=1.1cm, yshift=0.3cm, rotate=15] (0,0) -- (0.4,0);
+ 
+  \node(red) [below=of c, yshift=-0.1cm] {\color{pdcolor7} blue are good};
+  \node(blue) [below=of red] {\color{pdcolor6} red are bad};
+ 
+\end{tikzpicture}

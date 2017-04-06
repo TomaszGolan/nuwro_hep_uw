@@ -1,0 +1,23 @@
+\usetikzlibrary{calc}
+
+\begin{tikzpicture}
+
+  \draw[>=latex, <->, thick] node[left, yshift = 4cm]{$y$} ++ (0, 4) -- (0, 0) -- node[below, xshift = 2cm]{$x$} ++ (4,0);
+  
+  \foreach \x in {1,...,200}
+  {
+    \pgfmathparse{rnd}
+    \pgfmathsetmacro{\a}{2.9*\pgfmathresult + 0.05}
+    \pgfmathparse{rnd}
+    \pgfmathsetmacro{\b}{2.9*\pgfmathresult + 0.05}
+    \pgfmathsetmacro{\c}{\a - 2.0 * \b}
+        
+    \ifthenelse{\lengthtest{\c pt > 0.2 pt}}{\draw[filled, color=pdcolor7] (\a, \b) circle (0.03);}{}
+    \ifthenelse{\lengthtest{\c pt < - 0.2 pt}}{\draw[filled, color=pdcolor6] (\a, \b) circle (0.03);}{}
+  }
+
+  \draw[ultra thick] (0,0) -- node[yshift = 1.5cm, xshift = 2cm]{$f(x) = \frac{1}{2}x$} ++ (4,2);
+  
+  \draw[color=pdcolor3, dashed] node[left, yshift = 3cm]{1} ++ (0, 3) -- (3,3) -- node[yshift = -1.75cm]{1} (3, 0);
+      
+\end{tikzpicture}

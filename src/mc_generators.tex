@@ -1,0 +1,269 @@
+\section[toc=MC generators]{Monte Carlo generators}
+
+%%%%% BUFFON'S NEEDLE PROBLEM %%%%
+
+\begin{wideslide}{Buffon's needle problem}
+\null\vfill
+
+  \twocolumn
+  {
+    {\it Suppose we have a floor made of parallel strips of wood, each the same width, and we drop a needle onto the floor. What is the probability that the needle will lie across a line between two strips?}
+    
+    \sep
+    
+    {\it\hfill Georges-Louis Leclerc,\\\hfill Comte de Buffon\\\hfill 18th century}
+  }
+  {
+    \sep\sep
+    \centering\input{src/fig/buffon.tex}
+  }
+  
+  \vspace{-10pt}
+  \myBoxFullWidth{Monte Carlo without computers}
+  
+  \twocolumn
+  {
+    If needle length ($l$) $<$ lines width ($t$):
+    
+    $$P = \frac{2l}{t\pi}$$
+    
+    which can be used to estimate $\pi$:
+    
+    $$\pi = \frac{2l}{tP}$$
+  }
+  {
+    MC experiment was performed by Mario Lazzarini in 1901 by throwing 3408 needles:
+    
+    $$\pi = \frac{2l \cdot 3408}{t \cdot \#red} = \frac{355}{113} = 3.14159292$$
+  }
+  
+\vfill\null
+\end{wideslide}
+
+%%%%% STANISŁAM ULAM %%%%%
+
+\begin{wideslide}[toc = From Solitaire to MC]{From Solitaire to Monte Carlo method}
+\null\vfill
+
+    \twocolumn
+    {
+      \begin{itemize}
+	\item Stanis{\l}aw Ulam was a Polish mathematician
+	\item He invented the Monte Carlo method while playing solitaire
+	\item The method was used in Los Alamos, performed by ENIAC computer
+      \end{itemize}  
+      
+      \includegraphics[width=\columnwidth]{img/eniac1946.eps}
+    }
+    {
+      \includegraphics[width=\columnwidth]{img/solitaire.eps}
+      \begin{itemize}
+	\item What is a probability of success in solitaire?
+	\begin{itemize}
+	  \item Too complex for an analytical calculations
+	  \item Lets try $N = 100$ times and count wins
+	  \item With $N \rightarrow \infty$ we are getting closer to correct result
+	\end{itemize}
+      \end{itemize}
+    }
+ 
+\vfill\null
+\end{wideslide}
+
+%%%%% MC INTEGRATION: HIT-OR-MISS %%%%%
+
+\begin{slide}[toc=Hit-or-miss method]{MC integration (hit-or-miss method)}
+\null\vfill
+
+  Lets do the following integration using MC method:
+  
+  $$\int_0^1 f(x)dx = \int_0^1 \left(\frac{1}{2}x\right) dx = \left.\frac{1}{2}\frac{x^2}{2}\right|_{0}^{1} = \frac{1}{4}$$
+
+  \twocolumn
+  {
+    \sep
+    \begin{itemize}
+     \item take a random point from the $[0,1]\times[0,1]$ square
+     \item compare it to your $f(x)$
+     \item repeat $N$ times
+     \item count $n$ points below the function
+     \item you results is given by
+     $$\int_0^1 f(x)dx = P_{\square} \cdot \frac{n}{N} = \frac{n}{N}$$
+    \end{itemize}
+  }
+  {
+    \input{src/fig/mcExample.tex}
+  }
+  
+\vfill\null
+\end{slide}
+
+%%%%% MC INTEGRATION: CRUDE METHOD %%%%%
+
+\begin{slide}[toc=Crude method]{MC integration (crude method)}
+\null\vfill
+
+  Lets do the following integration using MC method once again:
+  
+  $$\int_0^1 f(x)dx = \int_0^1 \left(\frac{1}{2}x\right) dx = \left.\frac{1}{2}\frac{x^2}{2}\right|_{0}^{1} = \frac{1}{4}$$
+  \twocolumn
+  {
+    \begin{itemize}
+      \item One can approximate integral
+      \vspace{-5pt}
+      $$\int_a^b f(x) dx \approx \frac{b - a}{N}\sum_{i=1}^{N} f(x_i)$$
+     
+      where $x_i$ is a random number from $[a, b]$
+      
+      \item It can be shown that crude method is more accurate than hit-or-miss
+      
+      \item We will skip the math and look at some comparisons
+      
+    \end{itemize}
+  }
+  {
+    \input{src/fig/mcExample3.tex}
+  }
+
+\vfill\null
+\end{slide}
+
+%%%%% HIT-OR-MISS vs CRUDE %%%%%
+
+\begin{emptyslide}{Methods comparison}
+\null\vfill
+
+  \twocolumn
+  {
+    \includegraphics[width=\columnwidth]{img/int100.eps}
+    \includegraphics[width=\columnwidth]{img/int1000.eps}
+  }
+  {
+    \includegraphics[width=\columnwidth]{img/int2100.eps}
+    \includegraphics[width=\columnwidth]{img/int21000.eps}
+  }
+
+\vfill\null
+\end{emptyslide}
+
+%%%%% ACCEPT-REJECT %%%%%
+
+\begin{slide}[toc=]{Acceptance-rejection method}
+\null\vfill
+
+  \twocolumn
+  {
+    \myFrameFullWidth{For generating events \\ according to a distribution.}
+    
+    \begin{itemize}
+      \item Evaluate $f_{max} \geq \mbox{max}(f)$
+      \item[] {\it\color{pdcolor3}Note: $f_{max} > \mbox{max}(f)$ will affect performance, but the result will be still correct}
+      \item Generate random $x$
+      \item Accept $x$ with $P = \frac{f(x)}{f_{max}}$
+      \begin{itemize}
+	\item generate a random $u$ from $[0, f_{max}]$
+	\item accept if $u < f(x)$
+      \end{itemize}
+    \end{itemize}
+  }
+  {
+    \input{src/fig/ar1.tex}
+    \input{src/fig/ar3.tex}
+  }
+
+\vfill\null
+\end{slide}
+
+%%%%% MC GENERATORS %%%%%
+
+\begin{slide}[toc=MC generators]{Monte Carlo event generators}
+\null\vfill
+
+  \rput(1.1\slidewidth, 0.6\slideheight){\scalebox{1.5}{\input{src/fig/mcgenlogo}}}
+  
+  \vspace{-20pt}
+  \begin{itemize}
+    \item Monte Carlo generators \\ basically do two things:
+    \begin{itemize}
+      \item integrate cross \\ section formulas
+      \item generate events \\ using accept-reject method
+    \end{itemize}
+    {\it\grey{with many optimization tricks}}
+
+    \item Physicists have been using them since ENIAC
+    \item Some common generators used in neutrino community:
+    \sep\sep
+    \begin{itemize}
+      \item transport of particles through matter: {\bf Geant4}, {\bf FLUKA}
+      \item neutrino interactions: {\bf GENIE}, {\bf GIBUU}, {\bf NEUT}, {\bf NUANCE}, {\bf NuWro}
+    \end{itemize}
+  \end{itemize}
+
+\vfill\null
+\end{slide}
+
+%%%%% WHY MC? %%%%%
+
+\begin{slide}{Why do we need them?}
+\null\vfill
+    
+  \centering\input{src/fig/bridge}
+  
+  \sep\sep
+
+  \begin{itemize}
+    \item Monte Carlo event generators connect experiment (what we see) and theory (what we think we should see)
+    \item Any neutrino analysis relies on MC generators
+    \item From neutrino beam simulations, through neutrino interactions, to detector simulations
+    \item Used to evaluate systematic uncertainties, backgrounds, acceptances... 
+  \end{itemize}
+
+\vfill\null
+\end{slide}
+
+%%%%% MAIN PROBLEM %%%%%
+
+\begin{slide}[toc=The main problem]{What is the main problem?}
+\null\vfill
+
+  {\it\color{pdcolor3}\hfill ``You use Monte Carlo until you understand the problem''}\\
+  {\it\color{pdcolor3}\hfill Mark Kac}
+
+  \sep\sep\sep
+  
+  \twocolumn
+  {
+    \sep
+  
+    \begin{itemize}
+      \item In perfect world MC generators would contain ``pure'' theoretical models
+      \item In real world theory does not cover everything
+      \item Neutrino and non-neutrino data are used to tune generators
+    \end{itemize}
+  }
+  {
+    \centering\input{src/fig/mcDataCircle}
+  }
+  
+\vfill\null
+\end{slide}
+
+\begin{wideslide}[toc=Cooking generator]{How to build generator}
+\null\vfill
+
+  \sep
+
+  \twocolumn
+  {
+    \myBox{INGREDIENTS:} \sep
+    
+    \centering\scalebox{0.75}{\input{src/fig/mcingredients}}
+  }
+  {
+    \myBox{RECIPE:} \sep
+    \centering\includegraphics[width = \columnwidth]{img/kociol.eps}
+  }
+  
+\vfill\null
+\end{wideslide}
+

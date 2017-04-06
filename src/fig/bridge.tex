@@ -1,0 +1,17 @@
+\begin{tikzpicture}
+ 
+  \draw [color = pdcolor1, thick] (1, 1) to [out=-80, in=160] (2, 0);
+  \draw [color = pdcolor1, thick] (-1, 1) to [out=-100, in=20] (-2, 0);
+  \draw [color = pdcolor1, thick] (-1, 1) to [out=-80, in=-100] (1, 1);
+  
+  \draw [color = pdcolor1, line width = 5pt] (1, 0) -- (1, 1);
+  \draw [color = pdcolor1, line width = 5pt] (-1, 0) -- (-1, 1);
+  
+  \draw [color = pdcolor1, line width = 3pt] (-2.5, 0) -- (2.5, 0);
+  
+  \node [rect, notFilled] at (-3.5, -0.6) {Theory};
+  \node [rect, notFilled] at (3.5, -0.6) {Experiment};
+  
+  \node at (0, -0.6) {MC generators};
+  
+\end{tikzpicture}

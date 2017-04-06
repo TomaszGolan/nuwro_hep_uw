@@ -1,0 +1,14 @@
+\usetikzlibrary{calc}
+
+\pgfplotsset{every  tick/.style={pdcolor3,}, minor x tick num=1,}
+
+\begin{tikzpicture}
+
+  \begin{axis}[xlabel = {$x$}, ylabel = {$y$}, ylabel near ticks, domain=0:1, scale=0.5, axis lines = left, inner axis line style={>=latex}, ymin = 0, ymax = 0.45, xmin = 0, xmax = 1.1]
+    
+    \addplot [thick, color = pdcolor6] table[x = x, y = y, col sep = space, mark = none] {data/ar.dat};
+    \addplot [dashed, mark = none, color = pdcolor1] {x*x*x*exp(-x*x)};
+    
+  \end{axis}
+
+\end{tikzpicture}

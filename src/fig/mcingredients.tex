@@ -1,0 +1,32 @@
+\begin{tikzpicture}
+
+  \begin{axis}[hide axis, domain = 0:1, scale = 1, ticks = none, ymin = 0, ymax = 1, xmin = 0, xmax = 1]
+    
+    \addplot [thick, color = pdcolor1, line width = 5pt, fill = pdcolor8, fill opacity = 0.25] coordinates {(0,0) (0,1) (1,1) (1,0) (0,0)};
+
+    \addplot [thick, color = pdcolor6, fill = pdcolor6, fill opacity = 0.5, smooth, each nth point = 1] table[x = x, y = y, col sep = space, mark = none] {data/o1.dat};
+    \addplot [thick, color = pdcolor6, fill = pdcolor6, fill opacity = 0.5, smooth, each nth point = 1] table[x = x, y = y, col sep = space, mark = none] {data/o2.dat};
+    
+    \addplot [thick, color = pdcolor7, fill = pdcolor7, fill opacity = 0.5, smooth, each nth point = 1] table[x = x, y = y, col sep = space, mark = none] {data/d1.dat};
+    \addplot [thick, color = pdcolor7, fill = pdcolor7, fill opacity = 0.5, smooth, each nth point = 1] table[x = x, y = y, col sep = space, mark = none] {data/d2.dat};
+    
+    \addplot [thick, color = pdcolor4, fill = pdcolor4, fill opacity = 0.5, smooth, each nth point = 1] table[x = x, y = y, col sep = space, mark = none] {data/t1.dat};
+    \addplot [thick, color = pdcolor4, fill = pdcolor4, fill opacity = 0.5, smooth, each nth point = 1] table[x = x, y = y, col sep = space, mark = none] {data/t2.dat};
+        
+  \end{axis}
+
+  \node [rectS, filled = pdcolor4, fill opacity = 0.5] at (1.5, -0.5) {\small\color{pdcolor1} theory};
+  \node at (1.5, -0.5) {\small\color{pdcolor1} theory};
+
+  \node [rectS, filled = pdcolor7, fill opacity = 0.5] at (3.5, -0.5) {\small\color{pdcolor1} $\nu$ data};
+  \node at (3.5, -0.5) {\small\color{pdcolor1} $\nu$ data};
+
+  \node [rectS, filled = pdcolor6, fill opacity = 0.5] at (5.5, -0.5) {\small\color{pdcolor1} other data};
+  \node at (5.5, -0.5) {\small\color{pdcolor1} other data};
+  
+  \node [rectS, filled = pdcolor8, fill opacity = 0.25, text width = 5.75cm, minimum width = 5.75cm] at (3.5, -1.5) {\small\color{pdcolor1} educated guesses};
+  \node at (3.5, -1.5) {\small\color{pdcolor1} educated guesses};
+  
+  \node at (3.5, 6) {Phase space};
+
+\end{tikzpicture}

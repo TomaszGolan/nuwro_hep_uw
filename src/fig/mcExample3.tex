@@ -1,0 +1,20 @@
+\usetikzlibrary{calc}
+
+\begin{tikzpicture}
+
+  \draw[>=latex, <->, thick] node[left, yshift = 4cm]{$y$} ++ (0, 4) -- (0, 0) -- node[below, xshift = 2cm]{$x$} ++ (4,0);
+  
+  \foreach \x in {1,...,14}
+  {
+    \pgfmathparse{rnd}
+
+    \pgfmathsetmacro{\a}{0.2 * \x + 0.05 + 0.1 * \pgfmathresult - 0.05}
+        
+    \draw[filled, color=pdcolor7] (\a, 0) circle (0.03);
+    
+    \draw[thin, color=pdcolor3, dashed] (\a, 0) -- (\a, 0.5*\a);
+  }
+
+  \draw[ultra thick] (0,0) -- node[yshift = 1.5cm, xshift = 2cm]{$f(x) = \frac{1}{2}x$} ++ (4,2);
+        
+\end{tikzpicture}

@@ -1,0 +1,9 @@
+\begin{tikzpicture}[node distance = 2cm]
+ 
+  \node(mc) [circ, filled] {MC};
+  \node(data) [circ, filled, below=of mc] {Data};
+  
+  \draw[line, thick, ->, bend left] (mc) to node[auto] {input} (data);
+  \draw[line, thick, ->, bend left] (data) to node[auto] {input} (mc);
+ 
+\end{tikzpicture}
