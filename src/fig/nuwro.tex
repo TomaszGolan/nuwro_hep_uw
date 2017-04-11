@@ -1,0 +1,57 @@
+\usetikzlibrary{mindmap,trees}
+
+\tikzstyle{fullAngle}[1] = [level #1/.append style = {sibling angle = 360/\the\tikznumberofchildren}]
+\tikzstyle{angle60}[1] = [level #1/.append style = {sibling angle = 60}]
+
+\tikzset{level 1 concept/.append style = {font = \large, sibling angle = 90, level distance = 5cm, minimum size = 2.5cm}}
+\tikzset{level 2 concept/.append style = {font = \normalsize, sibling angle = 60, level distance = 3.5cm, minimum size = 2cm}}
+\tikzset{level 3 concept/.append style = {font = \small, sibling angle = 60, level distance = 3cm, minimum size = 2cm}}
+\tikzset{level 4 concept/.append style = {font = \small, sibling angle = 60, level distance = 3cm, minimum size = 2cm}}
+
+\scalebox{0.5}
+{
+\begin{tikzpicture}
+
+  \path[mindmap, concept color = pdcolor1, text = pdcolor2]
+  
+  node[concept, minimum size = 1cm] {\Large\bf NuWro} [clockwise from = 90]
+  child[concept color = pdcolor3!100!pdcolor1]
+  {
+    node[concept] {Interactions} [clockwise from = -150]
+    child { node[concept] {QEL} }
+    child { node[concept] {``RES''} }
+    child { node[concept] {``DIS''} }
+    child { node[concept] {MEC} }
+    child { node[concept] {COH} }
+  }  
+  child[concept color = pdcolor5!100!pdcolor1]
+  {
+    node[concept] {Other} [clockwise from = 30]
+    child {node[concept] {eWro} }
+    child {node[concept] {NuWro on-line} }
+  }
+  child[concept color = pdcolor4!100!pdcolor1]
+  {
+    node[concept] {Nuclear Effects} [clockwise from = -30, level 2 concept/.append style = {sibling angle = 120}]
+    child[concept]
+    {
+      node[concept] {Nucleus Model} [clockwise from = 30]
+      child { node[concept] {Fermi Gas} }
+      child { node[concept] {Spectral Function} }
+    }
+    child[concept]
+    {
+      node[concept] {FSI} [clockwise from = -150]
+      child {node[concept] {Pions} }
+      child { node[concept] {Nucleons} }
+    }
+  }
+  child[concept color = pdcolor6!100!pdcolor1]
+  { 
+    node[concept] {Experiment} [clockwise from = -150]
+    child {node[concept] {Beam} }
+    child { node[concept] {Detector} }
+  };
+
+\end{tikzpicture}
+}

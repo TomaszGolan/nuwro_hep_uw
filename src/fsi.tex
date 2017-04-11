@@ -1,0 +1,388 @@
+\section{Final state interactions}
+
+%%%%% FSI %%%%%
+
+\begin{slide}[toc=FSI]{Final state interactions}
+\null\vfill
+
+  FSI describe the propagation of particles created in a primary neutrino interaction through nucleus
+  
+  \sep\sep
+
+  \centering\scalebox{0.4}{\input{src/fig/fsi}}
+
+  \sep
+  
+  All MC generators (but GIBUU) use intranuclear cascade model
+
+\vfill\null
+\end{slide}
+
+%%%%% CASCADE %%%%%
+
+\begin{slide}[toc=Intranuclear cascade]{Intranuclear cascade}
+\null\vfill
+
+\rput(0.74\slidewidth, 0.25\slideheight){\input{src/fig/cascade}}
+
+ \begin{itemize}
+
+  \item In INC model particles \\ are assumed to be classical \\ and move along \\ the straight line.
+  \item The probability of passing \\ a distance $\lambda$ (small enough to assume constant nuclear density) without any interaction is given by:
+    
+  $$P(\lambda) = e^{-\lambda/\tilde\lambda}$$ 
+    
+ \end{itemize}
+
+ \begin{itemize}
+  \item[$\tilde\lambda$] = $(\sigma\rho)^{-1}$ - mean free path
+  \item[$\sigma$]- cross section
+  \item[$\rho$]- nuclear density
+ \end{itemize}
+ 
+ \psframe[linewidth = 0.02, linecolor = pdcolor1](5.5,0.5)(9.5,2)
+ \rput[c](7.5,1.5){\color{pdcolor1} Can be easily handled}
+ \rput[c](7.5,1){\color{pdcolor1} with MC methods.}
+
+
+\vfill\null
+\end{slide}
+
+%%%%% CASCADE ALGORITHM %%%%%
+
+\begin{wideslide}[toc=Cascade algorithm]{The algorithm for intranuclear cascade}
+
+  \rput(0.8\slidewidth, -0.3\slideheight)
+  {
+  \begin{pspicture}
+  
+    \onslide*{1-8}
+    {
+    \psframe[linewidth = 0.025, linecolor = pdcolor1](0,6)(3,7.5)
+    \rput[c](1.5,7){\color{pdcolor1}\footnotesize Calculate:}
+    \rput[c](1.5,6.5){\color{pdcolor1}\footnotesize $\tilde\lambda(r) = \left[\sigma\rho(r)\right]^{-1}$}
+    }
+    \onslide*{2-8}
+    {
+    \psline[linewidth = 0.025, linecolor = pdcolor1]{->}(3,6.75)(3.5,6.75)
+    \psframe[linewidth = 0.025, linecolor = pdcolor1](3.5,6)(6.5,7.5)
+    \rput[c](5,7){\color{pdcolor1}\footnotesize $\lambda = \tilde\lambda\cdot\ln(P)$}
+    \rput[c](5,6.5){\color{pdcolor1}\footnotesize $P = \mbox{rand}[0,1]$}
+    }
+    \onslide*{3-8}
+    {
+    \psline[linewidth = 0.025, linecolor = pdcolor1]{->}(5,6)(5,5.5)
+    \psframe[linewidth = 0.025, linecolor = pdcolor1](3.5,4)(6.5,5.5)
+    \rput[c](5,5){\color{pdcolor1}\footnotesize move particle by}
+    \rput[c](5,4.5){\color{pdcolor1}\footnotesize $\mbox{min}(\lambda,\lambda_{max})$}
+    }
+    \onslide*{4-8}
+    {
+    \psline[linewidth = 0.025, linecolor = pdcolor1]{->}(3.5,4.75)(3,4.75)
+    \psframe[linewidth = 0.025, linecolor = pdcolor1](0,4)(3,5.5)
+    \rput[c](1.5,5){\color{pdcolor1}\footnotesize Check $r' > R$}
+    \rput[c](1.5,4.5){\color{pdcolor1}\footnotesize $R$ - nucleus radius}
+    }
+    \onslide*{5-8}
+    {
+    \psline[linewidth = 0.025, linecolor = pdcolor1]{->}(1.5,4)(1.5,3.5)
+    \rput[l](1.6,3.75){\color{pdcolor1}\footnotesize Yes}
+    \psframe[linewidth = 0.025, linecolor = pdcolor1](0,2)(3,3.5)
+    \rput[c](1.5,3){\color{pdcolor1}\footnotesize The particle}
+    \rput[c](1.5,2.5){\color{pdcolor1}\footnotesize leaves nucleus.}
+    }
+    \onslide*{6-8}
+    {
+    \psline[linewidth = 0.025, linecolor = pdcolor1]{->}(3,4)(3.5,3.5)
+    \rput[l](3.25,3.85){\color{pdcolor1}\footnotesize No}
+    \psframe[linewidth = 0.025, linecolor = pdcolor1](3.5,2)(6.5,3.5)
+    \rput[c](5,3){\color{pdcolor1}\footnotesize Check}
+    \rput[c](5,2.5){\color{pdcolor1}\footnotesize $\lambda < \lambda_{max}$.}
+    \psline[linewidth = 0.025, linecolor = pdcolor1](6.5,2.75)(7,2.75)
+    \psline[linewidth = 0.025, linecolor = pdcolor1](7,2.75)(7,8)
+    \psline[linewidth = 0.025, linecolor = pdcolor1](7,8)(1.5,8)
+    \psline[linewidth = 0.025, linecolor = pdcolor1]{->}(1.5,8)(1.5,7.5)
+    \rput[l](6.6,2.6){\color{pdcolor1}\footnotesize No}
+    }
+    \onslide*{7-8}
+    {
+    \psline[linewidth = 0.025, linecolor = pdcolor1]{->}(5,2)(5,1.5)
+    \rput[l](5.1,1.75){\color{pdcolor1}\footnotesize Yes}
+    \psframe[linewidth = 0.025, linecolor = pdcolor1](3.5,0)(6.5,1.5)   
+    \rput[c](5,1){\color{pdcolor1}\footnotesize Generate}
+    \rput[c](5,0.5){\color{pdcolor1}\footnotesize the interaction.}
+    }
+    \onslide*{8}
+    {
+    \psframe[linewidth = 0.025, linecolor = pdcolor1](0,0)(3,1.5)
+    \rput[c](1.5,1){\color{pdcolor1}\footnotesize Check}
+    \rput[c](1.5,0.5){\color{pdcolor1}\footnotesize Pauli blocking.}
+    
+    \psline[linewidth = 0.025, linecolor = pdcolor1]{->}(3.5,0.75)(3,0.75)
+    
+    \psline[linewidth = 0.025, linecolor = pdcolor1](0,0.75)(-0.5,0.75)
+    \psline[linewidth = 0.025, linecolor = pdcolor1](-0.5,0.75)(-0.5,6.75)
+    \psline[linewidth = 0.025, linecolor = pdcolor1]{->}(-0.5,6.75)(0,6.75)    
+    }
+    
+  \end{pspicture}
+  }
+  
+  \rput(0.55\slidewidth, 0.1\slideheight)
+  {
+  \begin{pspicture}
+  
+    \onslide*{1-8}
+    {
+    \pscircle[linewidth = 0.05, linecolor = pdcolor1](0,0){2}
+
+    \pscircle[linestyle = none, fillstyle = solid, fillcolor = pdcolor1](0.75,1){0.2}
+    \pscircle[linestyle = none, fillstyle = solid, fillcolor = pdcolor1](-0.5,1.25){0.2}
+    \pscircle[linestyle = none, fillstyle = solid, fillcolor = pdcolor1](-1,0){0.2}
+    \pscircle[linestyle = none, fillstyle = solid, fillcolor = pdcolor1](0,0.45){0.2}
+    \pscircle[linestyle = none, fillstyle = solid, fillcolor = pdcolor1](0.6, -0.75){0.2}
+    \pscircle[linestyle = none, fillstyle = solid, fillcolor = pdcolor1](-0.4, -1.2){0.2}
+    \pscircle[linestyle = none, fillstyle = solid, fillcolor = pdcolor1](1.25, 0){0.2}
+    }
+
+    \onslide*{1-2}
+    {
+    \pscircle[linestyle = none, fillstyle = solid, fillcolor = pdcolor4](-0.6,-0.6){0.2}
+    }
+
+    \onslide*{1}
+    {
+    \psline[linewidth = 0.02, linecolor = pdcolor1]{<->}(0,0)(-0.4,-0.4)
+    \rput[c]{45}(-0.25,-0.1){\color{pdcolor1}\footnotesize $r$}
+    }
+
+    \onslide*{7}
+    {
+    \psline[linewidth = 0.02, linecolor = pdcolor3]{|<->|}(-0.38,-0.73)(1,-0.1)    
+    \rput[c]{25}(0.2,-0.6){\color{pdcolor3}\tiny $x_{max}$}
+    }
+    
+    \onslide*{7-8}
+    {
+    \pscircle[linestyle = none, fillstyle = solid, fillcolor = pdcolor5](0.8,0.15){0.2}    
+    \psline[linewidth = 0.02, linecolor = pdcolor5]{->}(1,0.275)(1.2,0.375)
+    \pscircle[linestyle = none, fillstyle = solid, fillcolor = pdcolor1](0.5,0.15){0.2}    
+    \psline[linewidth = 0.02, linecolor = pdcolor1]{->}(0.5,0.375)(0.5,0.575)
+    }
+    
+    \onslide*{8}
+    {
+    \psline[linewidth = 0.02, linecolor = pdcolor1]{->}(0.75, 1.225)(0.75, 1.435)
+    \pscircle[linewidth = 0.01, linecolor = pdcolor4](0.75, 1.325){0.125}
+    \pscircle[linewidth = 0.01, linecolor = pdcolor4](0.5, 0.475){0.125}
+    }
+    
+    \onslide*{2-4,6-8}
+    {
+    \psline[linewidth = 0.02, linecolor = pdcolor4]{->}(-0.4,-0.55)(0.4,-0.2)
+    }
+    
+    \onslide*{3-4,6-8}
+    {
+    \pscircle[linestyle = none, fillstyle = solid, fillcolor = pdcolor4,opacity = 0.5](-0.6,-0.6){0.2}
+    \pscircle[linestyle = none, fillstyle = solid, fillcolor = pdcolor4](0.6,-0.1){0.2}
+    }
+    
+    \onslide*{4}
+    {
+    \psline[linewidth = 0.02, linecolor = pdcolor1]{<->}(0,0)(0.4,-0.1)
+    \rput[c]{-10}(0.3,0.1){\color{pdcolor1}\footnotesize $r'$}
+    }
+
+    \onslide*{5}
+    {
+    \psline[linewidth = 0.02, linecolor = pdcolor4]{->}(-0.8,-0.675)(-1.8,-1.2)
+    \pscircle[linestyle = none, fillstyle = solid, fillcolor = pdcolor4,opacity = 0.5](-0.6,-0.6){0.2}
+    \pscircle[linestyle = none, fillstyle = solid, fillcolor = pdcolor4](-2,-1.3){0.2}
+    }
+    
+    \onslide*{6}
+    {
+    \psline[linewidth = 0.02, linecolor = pdcolor3]{|<->|}(-0.38,-0.73)(0.3,-0.425)    
+    \rput[c]{25}(0,-0.7){\color{pdcolor3}\tiny $x_{max}$}
+    }
+    
+  \end{pspicture}
+  }
+
+\end{wideslide}
+
+%%%%% LP EFFECT %%%%%
+
+\begin{slide}[toc=LP effect]{Landau Pomeranchuk effect}
+  
+    \rput(0.75\slidewidth, 0.17\slideheight){\scalebox{0.6}{\input{src/fig/lp1}}}
+
+    \begin{itemize}
+      \item The concept of \\ formation time \\ was introduced by \\ Landau and Pomeranchuk \\ in the context of electrons \\ passing through a layer of material.
+      \item For high energy electrons they observed less radiated energy then expected.
+      \item The energy radiated in such process is given by:
+      
+      $$\frac{\mbox{d}I}{\mbox{d}^3k} \sim \left|\int_{-\infty}^{\infty} \vec j(\vec x, t) e^{i(\omega t - \vec k\cdot \vec x(t))}\mbox{d}^3x\mbox{d}t\right|^2$$
+      
+      \item[$\vec x(t)$] describes the trajectory of the electron.
+      \item[$\omega$, $\vec k$] are energy and momentum of the emitted photon.
+      
+    \end{itemize}
+      
+\end{slide}
+
+\begin{wideslide}[toc=]{Landau Pomeranchuk effect}
+
+    \rput(0.95\slidewidth, 0.15\slideheight){\scalebox{0.6}{\input{src/fig/lp2}}}
+    
+    \begin{itemize}
+    
+      \item Assuming the trajectory to be a series of \\ straight lines (the current density \\$j \sim \delta^3(\vec x - \vec v t)$) the radiation integral is:
+      
+      $$\hspace{-200pt}\sim \int_{path} e^{i \left(\vec k \vec v - \omega\right)t}\mbox{d}t$$
+      
+    \end{itemize}
+    
+    \vspace{15pt}
+    
+    \twocolumn
+    {
+    \begin{itemize}
+     \item Formation time is defined as: 
+     $$\hspace{-25pt}t_f \equiv \frac{1}{\omega - \vec k \vec v} = \frac{E}{kp} = \frac{E}{m_e}\frac{1}{\omega_{r.f.}} = \gamma T_{r.f.}$$
+     {\color{pdcolor3}\small
+     $k$, $p$ - photon, electron four-momenta\\
+     $\omega_{r.f.}$ - photon frequency in the rest frame of the electron
+     }
+     \item Formation time can be interpreted as the ``birth time'' of photon.
+    \end{itemize}
+    }
+    {
+    \begin{itemize}
+    
+      \item If time between collisions $t >> t_f$, there is no interference and total radiated energy is just the average emitted in one collision multiplied by the number of collisions. 
+      \item If $t << t_f$, a photon is produced coherently over entire length of formation zone, which reduces the bremsstrahlung. 
+      
+    \end{itemize}
+    } 
+    
+\end{wideslide}
+
+%%%%% FORMATION ZONE %%%%%
+
+\begin{wideslide}[toc=Formation time]{Formation time in INC}
+
+  \rput(1.1\slidewidth, 0.225\slideheight){\scalebox{0.75}{\input{src/fig/fz}}}
+  
+  \begin{itemize}
+   
+   \item One may expect a similar effect in hadron-nucleus scattering.
+   
+   \item In terms of INC it means that particles produced in \\ primary vertex travel some distance, before they can interact.
+   
+   \item There are several parametrization used in MC generators
+   
+   \item Ranft parametrization:
+   
+   $$t_f = \tau_0 \frac{E\cdot M}{\mu_T^2}$$
+   
+   \sep
+   
+   where $E$, $M$ - nucleon energy and mass, $\mu_T^2 = M^2 + p_T^2$ - transverse mass
+   
+   \item SKAT parametrization (similar but with $p_T = 0$)
+   
+   \item NEUT and GENIE use SKAT parametrization
+   
+   \item NuWro uses Ranft parametrization for DIS and a model based on $\Delta$ lifetime for RES
+  
+  \end{itemize}
+
+\end{wideslide}
+
+%%%%% NOMAD EXAMPLE %%%%%
+
+\begin{slide}[toc=NOMAD]{Comparison with NOMAD data}
+
+  \rput[c](14.5,3.5){\input{src/fig/nomad}}
+  
+  \begin{itemize}
+  
+    \item Nomad data from \\ Nucl. Phys. B609 (2001) 255.
+    
+    \item The average number \\ of backward going negative pions \\ with the momentum \\ from $350$ to $800$~MeV/c.
+    
+    \item In this neutrino \\ energy range \\ $B\pi^-$ are an \\ effect of FSI.
+    
+    \item The observable is \\ very sensitive \\ to formation time \\ effect.
+
+  \end{itemize}
+  
+   \rput[c](7,2){\includegraphics[width=0.5\slidewidth]{img/nomad.eps}}
+ 
+\end{slide}
+
+%%%%% NC PI0 %%%%%
+
+\begin{slide}[toc=NC $\pi$]{Comparison with data for NC $\pi^0$ production}
+
+  \rput(12, 4.25){\input{src/fig/ncpi0}}
+
+  \begin{itemize}
+   
+   \item The cross section \\ for $\pi^0$ production \\ through neutral current \\ is measured by \\ K2K [1], MiniBooNE [2] and SciBooNE [3] experiments.
+   
+   \item The signal is defined as: no charged leptons nor charged pions and one neutral pion (or at least one for ScibooNE) in the final state.
+   
+   \item The result depends on primary vertex and FSI, as $\pi$ can be:
+   
+    \begin{itemize}
+    
+      \item produced in primary vertex;
+      \item produced in FSI;
+      \item affected by charge exchange;
+      \item absorbed.
+    
+    \end{itemize}
+    
+  \end{itemize}
+
+  \rput[l](6.25,2){\color{pdcolor3}\footnotesize [1] Phys. Lett. B619 (2005) 255}
+  \rput[l](6.25,1.5){\color{pdcolor3}\footnotesize [2] Phys. Rev. D81 (2010) 013005}
+  \rput[l](6.25,1){\color{pdcolor3}\footnotesize [3] Phys. Rev. D81 (2009) 033004}
+  
+\end{slide}
+
+\begin{wideslide}[toc=]{Comparison with data for NC $\pi^0$ production}
+ 
+  \hspace{20pt}\includegraphics[width = 0.425\slidewidth]{img/k2k.eps}
+  \includegraphics[width = 0.425\slidewidth]{img/sb.eps}\\
+  \hspace{20pt}\includegraphics[width = 0.425\slidewidth]{img/mb.eps}
+  \includegraphics[width = 0.425\slidewidth]{img/mba.eps}
+ 
+\end{wideslide}
+
+%%%%% INTERACTIONS SUMMARY %%%%%
+
+\begin{wideslide}[toc=Summary]{Neutrino-nucleus interactions}
+\null\vfill
+
+  \sep
+
+  For all channels (but coherent) neutrino interactions are factorized in the following way
+  
+  \sep\sep\sep
+  
+  \centering\input{src/fig/factorization}
+  
+  \sep\sep
+  
+  \begin{itemize}
+   \item Is the physics really factorized this way?
+   \item This factorization is common for all generators
+   \item However, some pieces are done in different way
+  \end{itemize}
+  
+\vfill\null
+\end{wideslide}

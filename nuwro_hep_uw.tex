@@ -26,10 +26,121 @@ clock,
 
 \maketitle
 
-%\input{src/introduction}
 
-%\input{src/mc_generators}
+\begin{wideslide}[toc=]{Outline}
+  
+  \rput(5,5)
+  {
+  \begin{pspicture}
+  \rput[l](1,-1){\Large 1. Motivation}
+  \rput[l](1,-3.1){\Large 2. NuWro event generator}
+  \rput[l](1,-5.2){\Large 3. Final State Interactions}
+  \rput[l](1,-7.3){\Large 4. MB NCEL data analysis}
+  \end{pspicture}
+  }
+  
+  \rput[l](8,1.85)
+  {
+  \scalebox{0.5}
+  {
+  \begin{pspicture}
+      
+      
+    \rput[c](11.5, 3.25){\scalebox{1.5}{\input{src/fig/mcgenlogo}}}
+
+    \rput[c](6.5,-4.5){\scalebox{1.0}{\input{src/fig/cascade.tex}}}
+
+     \rput[c](3.8,-12.5){\includegraphics[width = 0.4\slidewidth]{img/bestfit.eps}}
+    
+      \rput[c](0,1.2){\color{pdcolor1} Neutrino source}
+      \pscircle[linewidth = 0.05, linecolor = pdcolor1](0,0){0.9}
+      \pscircle[linewidth = 0.05, linecolor = pdcolor1](0,0){0.65}
+      {
+      \psset{arrows = ->, arrowinset = 0}
+      \psarc[linewidth = 0.03, linecolor = pdcolor1](0,0){0.75}{0}{60}
+      \psarc[linewidth = 0.03, linecolor = pdcolor1](0,0){0.75}{60}{120}
+      \psarc[linewidth = 0.03, linecolor = pdcolor1](0,0){0.75}{120}{180}
+      \psarc[linewidth = 0.03, linecolor = pdcolor1](0,0){0.75}{180}{240}
+      \psarc[linewidth = 0.03, linecolor = pdcolor1](0,0){0.75}{240}{300}
+      \psarc[linewidth = 0.03, linecolor = pdcolor1](0,0){0.75}{300}{360}
+      }
+      \rput[c](0,0){\Large\color{pdcolor1} $\nu_\alpha$}
+	    
+      \psline[linewidth = 0.03, linecolor = pdcolor1](1.2, 0)(2.25, 0)
+	
+      \pscircle[linewidth = 0.03, linecolor = pdcolor1, linestyle = dotted](4, 0){1.75}
+      \cnodeput[linestyle = none, fillstyle = solid, fillcolor = pdcolor3](4,1.13){nue}{\Large\color{pdcolor2} $\nu_e$}
+      \cnodeput[linestyle = none, fillstyle = solid, fillcolor = pdcolor4](3,-0.57){num}{\Large\color{pdcolor2} $\nu_\mu$}
+      \cnodeput[linestyle = none, fillstyle = solid, fillcolor = pdcolor5](5,-0.57){nut}{\Large\color{pdcolor2} $\nu_\tau$}
+  
+      \psline[linewidth = 0.03, linecolor = pdcolor1]{->}(5.75, 0)(6.8, 0)
+      
+      \rput[c](7.9,1.2){\color{pdcolor1} Detector}
+      \psframe[linewidth = 0.05, linecolor = pdcolor1](7,-0.9)(8.8,0.9)
+
+      \psset{arrows = ->, arrowinset = 0.2}
+      \psline[linewidth = 0.03, linecolor = pdcolor1]{->}(7.5, 0)(8.3, 0.5)
+      \rput[c]{45}(7.75,0.45){\color{pdcolor1}$\alpha'$}
+      \psline[linewidth = 0.03, linecolor = pdcolor3]{->}(7.5, 0)(8.3, -0.1)
+      \psline[linewidth = 0.03, linecolor = pdcolor3]{->}(7.5, 0)(8.3, -0.4)
+      \psline[linewidth = 0.03, linecolor = pdcolor3]{->}(7.5, 0)(8.3, -0.7)
+    
+      \psset{nodesep = 3pt}
+      \ncarc[linecolor = pdcolor4]{->}{nue}{num}
+      \ncarc[linecolor = pdcolor3]{->}{num}{nue}
+      \ncarc[linecolor = pdcolor5]{->}{num}{nut}
+      \ncarc[linecolor = pdcolor4]{->}{nut}{num}
+      \ncarc[linecolor = pdcolor3]{->}{nut}{nue}
+      \ncarc[linecolor = pdcolor5]{->}{nue}{nut}
+  \end{pspicture}
+  }
+  }
+   
+  \rput(5,5.8)
+  {
+  \begin{pspicture}
+  \psframe[linewidth = 0.01, linecolor = pdcolor1](0,0)(13.2,-2)
+  \psframe[linewidth = 0.01, linecolor = pdcolor1](0,-2.1)(13.2,-4.1)
+  \psframe[linewidth = 0.01, linecolor = pdcolor1](0,-4.2)(13.2,-6.2)
+  \psframe[linewidth = 0.01, linecolor = pdcolor1](0,-6.3)(13.2,-8.3)
+  \end{pspicture}
+  }
+\end{wideslide}
+
+
+\input{src/introduction}
+
+\input{src/mc_generators}
 
 \input{src/nuwro}
+
+\input{src/fsi}
+
+\input{src/mbncel}
+
+\begin{slide}{Summary}
+\null\vfill
+
+  \begin{itemize}
+  
+    \item MC generators are irreplaceable tools in high-energy physics
+    
+    \item People use them before experiment exists (feasibility studies, requirements ...)
+    
+    \item And during data analysis (systematics uncertainties, backgrounds ...)    
+      
+    \item NuWro contains all major neutrino-nucleon interaction channels, reliable FSI model and realistic nucleus description - it is a ready tool to use in the investigation of neutrino data
+  
+  \end{itemize}
+  
+\vfill\null
+\end{slide}
+
+\begin{sectionwideslide}{}
+\vspace{70pt}
+{\Large\bf Thank you for the attention!}
+\end{sectionwideslide}
+
+\input{src/backup}
 
 \end{document}
