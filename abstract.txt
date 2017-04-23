@@ -1,0 +1,7 @@
+NuWro - neutrino Monte Carlo event generator
+============================================
+
+NuWro is a Monte Carlo neutrino event generator, which has been developed for years at Wroclaw University. It simulates neutrino interactions with nucleons and nuclei (including realistic detector geometry). The variety of implemented models makes it possible to study processes in a wide neutrino energy range. It is used for both data analysis and the validation of theoretical models.
+
+During the seminar I will introduce the NuWro generator and highlight implemented models of neutrino interactions and final state propagations through nuclear matter. I will also present the first analysis of neutral current elastic scattering data with the inclusion of two-body current interactions.
+
